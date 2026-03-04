@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>ciecz1</title>
+<style>
+/* Twój obecny design pozostaje bez zmian */
+body {
+    font-family: Arial;
+    background: #5c76df;
+    text-align: left;
+    padding-top: 50px;
+    padding-right: 50px;
+}
+h1 {
+    color: #000000;
+    text-align: center;
+}
+.sensors-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    max-width: 1600px;
+}
+.liquid-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.sensor-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+}
+.sensor-field input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.sensor-field input:focus {
+    outline: none;
+    border-color: #0077aa;
+}
+.save-indicator {
+    color: #28a745;
+    font-size: 14px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.save-indicator.show {
+    opacity: 1;
+}
+.general-table-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.general-table-container h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+.general-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.general-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.general-table td:first-child {
+    font-weight: bold;
+    color: #333;
+    width: 40%;
+}
+.general-table input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.general-table input:focus {
+    outline: none;
+    border-color: #0077aa;
+}
+</style>
+</head>
+<body>
+<div class="sensors-row">
+    <!-- Ciecz 1 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 1</h2>
+        <div class="sensor-field">
+            <label for="sensor1">Czujnik 1 - Odległość (mm):</label>
+            <input type="number" id="sensor1" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator1">Zapisano ✓</div>
+            <label for="setting1">ustawienie podawania:</label>
+            <input type="text" id="setting1" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 2 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 2</h2>
+        <div class="sensor-field">
+            <label for="sensor2">Czujnik 2 - Odległość (mm):</label>
+            <input type="number" id="sensor2" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator2">Zapisano ✓</div>
+            <label for="setting2">ustawienie podawania:</label>
+            <input type="text" id="setting2" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 3 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 3</h2>
+        <div class="sensor-field">
+            <label for="sensor3">Czujnik 3 - Odległość (mm):</label>
+            <input type="number" id="sensor3" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator3">Zapisano ✓</div>
+            <label for="setting3">ustawienie podawania:</label>
+            <input type="text" id="setting3" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 4 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 4</h2>
+        <div class="sensor-field">
+            <label for="sensor4">Czujnik 4 - Odległość (mm):</label>
+            <input type="number" id="sensor4" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator4">Zapisano ✓</div>
+            <label for="setting4">ustawienie podawania:</label>
+            <input type="text" id="setting4" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 5 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 5</h2>
+        <div class="sensor-field">
+            <label for="sensor5">Czujnik 5 - Odległość (mm):</label>
+            <input type="number" id="sensor5" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator5">Zapisano ✓</div>
+            <label for="setting5">ustawienie podawania:</label>
+            <input type="text" id="setting5" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 6 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 6</h2>
+        <div class="sensor-field">
+            <label for="sensor6">Czujnik 6 - Odległość (mm):</label>
+            <input type="number" id="sensor6" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator6">Zapisano ✓</div>
+            <label for="setting6">ustawienie podawania:</label>
+            <input type="text" id="setting6" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+    <!-- Ciecz 7 -->
+    <div class="liquid-container">
+        <h2 style="margin-top: 0; color: #333;">Ciecz 7</h2>
+        <div class="sensor-field">
+            <label for="sensor7">Czujnik 7 - Odległość (mm):</label>
+            <input type="number" id="sensor7" placeholder="Wpisz odległość..." inputmode="numeric">
+            <div class="save-indicator" id="indicator7">Zapisano ✓</div>
+            <label for="setting7">ustawienie podawania:</label>
+            <input type="text" id="setting7" placeholder="Wpisz ustawienie...">
+        </div>
+    </div>
+</div>
+
+<!-- Kalibracja -->
+<div class="liquid-container" style="max-width: 500px; margin: 30px auto;">
+    <h2 style="margin-top: 0; color: #333;">Kalibracja</h2>
+    <div class="sensor-field">
+        <label for="ph">pH (kwasowość wody):</label>
+        <input type="number" id="ph" placeholder="Wpisz wartość pH..." inputmode="numeric" step="0.1">
+        <div class="save-indicator" id="indicator-ph">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="gh">GH (twardość całkowita):</label>
+        <input type="number" id="gh" placeholder="Wpisz wartość GH..." inputmode="numeric">
+        <div class="save-indicator" id="indicator-gh">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="kh">KH (twardość węglowa):</label>
+        <input type="number" id="kh" placeholder="Wpisz wartość KH..." inputmode="numeric">
+        <div class="save-indicator" id="indicator-kh">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="no2">NO2 (azotyny):</label>
+        <input type="number" id="no2" placeholder="Wpisz wartość NO2..." inputmode="numeric" step="0.1">
+        <div class="save-indicator" id="indicator-no2">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="no3">NO3 (azotany):</label>
+        <input type="number" id="no3" placeholder="Wpisz wartość NO3..." inputmode="numeric">
+        <div class="save-indicator" id="indicator-no3">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="cl2">CL2 (chlor):</label>
+        <input type="number" id="cl2" placeholder="Wpisz wartość CL2..." inputmode="numeric" step="0.1">
+        <div class="save-indicator" id="indicator-cl2">Zapisano ✓</div>
+    </div>
+</div>
+
+<!-- Sterowanie RGB -->
+<div class="liquid-container" style="max-width: 500px; margin: 30px auto;">
+    <h2 style="margin-top: 0; color: #333;">Sterowanie RGB</h2>
+    <div class="sensor-field">
+        <label for="rgb-red">Czerwony (R) - 0-100%:</label>
+        <input type="number" id="rgb-red" placeholder="0-100" inputmode="numeric" min="0" max="100">
+        <div class="save-indicator" id="indicator-rgb-red">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="rgb-green">Zielony (G) - 0-100%:</label>
+        <input type="number" id="rgb-green" placeholder="0-100" inputmode="numeric" min="0" max="100">
+        <div class="save-indicator" id="indicator-rgb-green">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="rgb-blue">Niebieski (B) - 0-100%:</label>
+        <input type="number" id="rgb-blue" placeholder="0-100" inputmode="numeric" min="0" max="100">
+        <div class="save-indicator" id="indicator-rgb-blue">Zapisano ✓</div>
+    </div>
+    <div class="sensor-field">
+        <label for="rgb-mode">Tryb (Set) - 1-6:</label>
+        <select id="rgb-mode" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px; box-sizing: border-box;">
+            <option value="1">1 - Losowe kolory</option>
+            <option value="2">2 - Stały kolor</option>
+            <option value="3">3 - Niebieski-Czerwony</option>
+            <option value="4">4 - Pulsowanie</option>
+            <option value="5">5 - Tęcza</option>
+            <option value="6">6 - Biały pulsujący</option>
+        </select>
+        <div class="save-indicator" id="indicator-rgb-mode">Zapisano ✓</div>
+    </div>
+    <div style="margin-top: 15px; padding: 10px; background: #f0f0f0; border-radius: 5px;">
+        <div style="width: 100%; height: 50px; border-radius: 5px; background: rgb(0, 0, 0);" id="rgb-preview"></div>
+        <div style="text-align: center; margin-top: 5px; font-size: 12px; color: #666;">Podgląd koloru</div>
+    </div>
+</div>
+
+<div class="general-table-container">
+    <h2>Ogólne</h2>
+    <table class="general-table">
+        <tr>
+            <td>Temperatura:</td>
+            <td>
+                <input type="number" id="temperature" placeholder="Wpisz temperaturę..." inputmode="numeric">
+                <div class="save-indicator" id="indicator-temp">Zapisano ✓</div>
+            </td>
+        </tr>
+        <tr>
+            <td>Przepływ:</td>
+            <td>
+                <input type="number" id="flow" placeholder="Wpisz przepływ..." inputmode="numeric">
+                <div class="save-indicator" id="indicator-flow">Zapisano ✓</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+// Śledzenie pól które są aktualnie edytowane (mają focus)
+const focusedFields = new Set();
+const changedFields = new Set();
+
+// Mapowanie pól do kluczy JSON
+const fieldMapping = {
+    'sensor1': 'D1',
+    'sensor2': 'D2',
+    'sensor3': 'D3',
+    'sensor4': 'D4',
+    'sensor5': 'D5',
+    'sensor6': 'D6',
+    'sensor7': 'D7',
+    'setting1': 'S1',
+    'setting2': 'S2',
+    'setting3': 'S3',
+    'setting4': 'S4',
+    'setting5': 'S5',
+    'setting6': 'S6',
+    'setting7': 'S7',
+    'temperature': 'T',
+    'flow': 'V',
+    'ph': 'PH',
+    'gh': 'GH',
+    'kh': 'KH',
+    'no2': 'NO2',
+    'no3': 'NO3',
+    'cl2': 'CL2',
+    'rgb-red': 'R',
+    'rgb-green': 'G',
+    'rgb-blue': 'B',
+    'rgb-mode': 'Set'
+};
+
+// Funkcja zapisywania danych do serwera
+async function saveData(fieldId, value) {
+    const jsonKey = fieldMapping[fieldId];
+    if (!jsonKey) return;
+
+    try {
+        // Przygotuj tylko zmienione pole do wysłania (POST aktualizuje tylko przekazane wartości)
+        const dataToSave = {};
+        
+        // Pola S1-S7 i Set są stringami, pozostałe są numeryczne
+        if (jsonKey.startsWith('S') || jsonKey === 'Set') {
+            // Pole tekstowe (ustawienie podawania) lub tryb
+            if (value === '') {
+                // Usuń pole jeśli jest puste (ale nie Set)
+                if (jsonKey !== 'Set') {
+                    dataToSave[jsonKey] = '';
+                }
+            } else {
+                dataToSave[jsonKey] = value;
+            }
+        } else {
+            // Pole numeryczne
+            const numValue = value === '' ? null : parseFloat(value);
+            if (numValue !== null && !isNaN(numValue)) {
+                // Walidacja dla pól RGB (0-100)
+                if (jsonKey === 'R' || jsonKey === 'G' || jsonKey === 'B') {
+                    const clampedValue = Math.max(0, Math.min(100, numValue));
+                    dataToSave[jsonKey] = clampedValue;
+                } else {
+                    dataToSave[jsonKey] = numValue;
+                }
+            } else if (value === '') {
+                // Usuń pole jeśli jest puste (ale nie R, G, B)
+                if (jsonKey !== 'R' && jsonKey !== 'G' && jsonKey !== 'B') {
+                    dataToSave[jsonKey] = '';
+                }
+            } else {
+                return; // Nieprawidłowa wartość
+            }
+        }
+
+        // Wyślij tylko zmienione pole do serwera (POST aktualizuje tylko przekazane wartości)
+        const saveRes = await fetch("api.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(dataToSave)
+        });
+
+        if (saveRes.ok) {
+            const result = await saveRes.json();
+            console.log("Odpowiedź serwera:", result);
+            if (result.success) {
+                // Pokaż wskaźnik zapisu
+                let indicatorId;
+                if (fieldId.startsWith('sensor')) {
+                    indicatorId = 'indicator' + fieldId.replace('sensor', '');
+                } else if (fieldId.startsWith('setting')) {
+                    indicatorId = 'indicator' + fieldId.replace('setting', '');
+                } else if (fieldId.startsWith('rgb-')) {
+                    indicatorId = 'indicator-' + fieldId;
+                } else {
+                    indicatorId = 'indicator-' + fieldId;
+                }
+                const indicator = document.getElementById(indicatorId);
+                if (indicator) {
+                    indicator.classList.add('show');
+                    setTimeout(() => indicator.classList.remove('show'), 2000);
+                }
+                // Zaktualizuj oryginalną wartość po zapisaniu
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.setAttribute('data-original-value', value);
+                }
+                changedFields.delete(fieldId);
+            } else {
+                console.error("Błąd zapisu:", result);
+                alert("Błąd zapisu: " + result);
+            }
+        } else {
+            const errorText = await saveRes.text();
+            console.error("Błąd HTTP:", saveRes.status, errorText);
+            alert("Błąd zapisu: " + saveRes.status + " - " + errorText);
+        }
+    } catch (e) {
+        console.log("Błąd zapisu danych:", e);
+    }
+}
+
+// Automatyczne uzupełnianie danych z data.json
+async function loadData() {
+    // Nie odświeżaj jeśli jakiekolwiek pole ma focus
+    if (focusedFields.size > 0) {
+        return;
+    }
+
+    try {
+        const res = await fetch("data.json?x=" + Date.now());
+        if (!res.ok) return;
+        const d = await res.json();
+
+        // Aktualizuj tylko pola które nie są edytowane i nie zostały zmienione
+        if (d.D1 != null && !focusedFields.has('sensor1') && !changedFields.has('sensor1')) {
+            document.getElementById("sensor1").value = d.D1;
+        }
+        if (d.D2 != null && !focusedFields.has('sensor2') && !changedFields.has('sensor2')) {
+            document.getElementById("sensor2").value = d.D2;
+        }
+        if (d.D3 != null && !focusedFields.has('sensor3') && !changedFields.has('sensor3')) {
+            document.getElementById("sensor3").value = d.D3;
+        }
+        if (d.D4 != null && !focusedFields.has('sensor4') && !changedFields.has('sensor4')) {
+            document.getElementById("sensor4").value = d.D4;
+        }
+        if (d.D5 != null && !focusedFields.has('sensor5') && !changedFields.has('sensor5')) {
+            document.getElementById("sensor5").value = d.D5;
+        }
+        if (d.D6 != null && !focusedFields.has('sensor6') && !changedFields.has('sensor6')) {
+            document.getElementById("sensor6").value = d.D6;
+        }
+        if (d.D7 != null && !focusedFields.has('sensor7') && !changedFields.has('sensor7')) {
+            document.getElementById("sensor7").value = d.D7;
+        }
+
+        // Ustawienia podawania (S1-S7)
+        if (d.S1 != null && !focusedFields.has('setting1') && !changedFields.has('setting1')) {
+            document.getElementById("setting1").value = d.S1;
+        }
+        if (d.S2 != null && !focusedFields.has('setting2') && !changedFields.has('setting2')) {
+            document.getElementById("setting2").value = d.S2;
+        }
+        if (d.S3 != null && !focusedFields.has('setting3') && !changedFields.has('setting3')) {
+            document.getElementById("setting3").value = d.S3;
+        }
+        if (d.S4 != null && !focusedFields.has('setting4') && !changedFields.has('setting4')) {
+            document.getElementById("setting4").value = d.S4;
+        }
+        if (d.S5 != null && !focusedFields.has('setting5') && !changedFields.has('setting5')) {
+            document.getElementById("setting5").value = d.S5;
+        }
+        if (d.S6 != null && !focusedFields.has('setting6') && !changedFields.has('setting6')) {
+            document.getElementById("setting6").value = d.S6;
+        }
+        if (d.S7 != null && !focusedFields.has('setting7') && !changedFields.has('setting7')) {
+            document.getElementById("setting7").value = d.S7;
+        }
+
+        if (d.T != null && !focusedFields.has('temperature') && !changedFields.has('temperature')) {
+            document.getElementById("temperature").value = d.T;
+        }
+        if (d.V != null && !focusedFields.has('flow') && !changedFields.has('flow')) {
+            document.getElementById("flow").value = d.V;
+        }
+
+        // Pola kalibracji
+        if (d.PH != null && !focusedFields.has('ph') && !changedFields.has('ph')) {
+            document.getElementById("ph").value = d.PH;
+        }
+        if (d.GH != null && !focusedFields.has('gh') && !changedFields.has('gh')) {
+            document.getElementById("gh").value = d.GH;
+        }
+        if (d.KH != null && !focusedFields.has('kh') && !changedFields.has('kh')) {
+            document.getElementById("kh").value = d.KH;
+        }
+        if (d.NO2 != null && !focusedFields.has('no2') && !changedFields.has('no2')) {
+            document.getElementById("no2").value = d.NO2;
+        }
+        if (d.NO3 != null && !focusedFields.has('no3') && !changedFields.has('no3')) {
+            document.getElementById("no3").value = d.NO3;
+        }
+        if (d.CL2 != null && !focusedFields.has('cl2') && !changedFields.has('cl2')) {
+            document.getElementById("cl2").value = d.CL2;
+        }
+
+        // Pola RGB
+        if (d.R != null && d.R !== -1 && !focusedFields.has('rgb-red') && !changedFields.has('rgb-red')) {
+            const rValue = d.R === -1 ? 0 : d.R;
+            document.getElementById("rgb-red").value = rValue;
+        }
+        if (d.G != null && d.G !== -1 && !focusedFields.has('rgb-green') && !changedFields.has('rgb-green')) {
+            const gValue = d.G === -1 ? 0 : d.G;
+            document.getElementById("rgb-green").value = gValue;
+        }
+        if (d.B != null && d.B !== -1 && !focusedFields.has('rgb-blue') && !changedFields.has('rgb-blue')) {
+            const bValue = d.B === -1 ? 0 : d.B;
+            document.getElementById("rgb-blue").value = bValue;
+        }
+        if (d.Set != null && d.Set !== '' && !focusedFields.has('rgb-mode') && !changedFields.has('rgb-mode')) {
+            document.getElementById("rgb-mode").value = d.Set;
+        } else if ((d.Set == null || d.Set === '') && !focusedFields.has('rgb-mode') && !changedFields.has('rgb-mode')) {
+            // Domyślny tryb to 2 (stały kolor)
+            document.getElementById("rgb-mode").value = '2';
+        }
+
+        // Aktualizuj podgląd koloru RGB
+        updateRGBPreview();
+
+    } catch (e) {
+        console.log("Błąd odczytu danych JSON:", e);
+    }
+}
+
+// Funkcja aktualizująca podgląd koloru RGB
+function updateRGBPreview() {
+    const rField = document.getElementById("rgb-red");
+    const gField = document.getElementById("rgb-green");
+    const bField = document.getElementById("rgb-blue");
+    
+    if (!rField || !gField || !bField) return;
+    
+    let r = parseInt(rField.value) || 0;
+    let g = parseInt(gField.value) || 0;
+    let b = parseInt(bField.value) || 0;
+    
+    // Ograniczenie do zakresu 0-100
+    r = Math.max(0, Math.min(100, r));
+    g = Math.max(0, Math.min(100, g));
+    b = Math.max(0, Math.min(100, b));
+    
+    const preview = document.getElementById("rgb-preview");
+    if (preview) {
+        // Konwersja z 0-100% do 0-255 dla RGB
+        const r255 = Math.round((r / 100) * 255);
+        const g255 = Math.round((g / 100) * 255);
+        const b255 = Math.round((b / 100) * 255);
+        preview.style.background = `rgb(${r255}, ${g255}, ${b255})`;
+    }
+}
+
+// Dodaj event listenery do wszystkich pól input
+function setupFieldListeners() {
+    // Wszystkie pola są edytowalne (odległości, ustawienia podawania, temperatura, przepływ, kalibracja, RGB)
+    const editableFields = ['sensor1', 'sensor2', 'sensor3', 'sensor4', 'sensor5', 'sensor6', 'sensor7', 'setting1', 'setting2', 'setting3', 'setting4', 'setting5', 'setting6', 'setting7', 'temperature', 'flow', 'ph', 'gh', 'kh', 'no2', 'no3', 'cl2', 'rgb-red', 'rgb-green', 'rgb-blue', 'rgb-mode'];
+    
+    // Pola edytowalne - dodaj listenery do zapisu
+    editableFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (field) {
+            // Śledź focus
+            field.addEventListener('focus', () => {
+                focusedFields.add(fieldId);
+            });
+            
+            // Śledź blur i zapisz zmiany
+            field.addEventListener('blur', () => {
+                focusedFields.delete(fieldId);
+                const value = field.value;
+                const originalValue = field.getAttribute('data-original-value');
+                
+                if (value !== originalValue) {
+                    changedFields.add(fieldId);
+                    saveData(fieldId, value);
+                } else {
+                    changedFields.delete(fieldId);
+                }
+            });
+            
+            // Zapisz przy naciśnięciu Enter
+            field.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    field.blur(); // To wywoła zapis przez blur event
+                }
+            });
+
+            // Dla pól RGB - aktualizuj podgląd podczas wpisywania i waliduj zakres
+            if (fieldId.startsWith('rgb-') && fieldId !== 'rgb-mode') {
+                field.addEventListener('input', () => {
+                    updateRGBPreview();
+                    // Walidacja zakresu 0-100
+                    let value = parseInt(field.value);
+                    if (!isNaN(value)) {
+                        if (value < 0) field.value = 0;
+                        if (value > 100) field.value = 100;
+                    }
+                });
+            }
+        }
+    });
+
+    // Dla select (tryb RGB) - zapisz przy zmianie
+    const rgbModeSelect = document.getElementById('rgb-mode');
+    if (rgbModeSelect) {
+        rgbModeSelect.addEventListener('focus', () => {
+            focusedFields.add('rgb-mode');
+        });
+        rgbModeSelect.addEventListener('blur', () => {
+            focusedFields.delete('rgb-mode');
+            const value = rgbModeSelect.value;
+            const originalValue = rgbModeSelect.getAttribute('data-original-value');
+            
+            if (value !== originalValue) {
+                changedFields.add('rgb-mode');
+                saveData('rgb-mode', value);
+            } else {
+                changedFields.delete('rgb-mode');
+            }
+        });
+        rgbModeSelect.addEventListener('change', () => {
+            const value = rgbModeSelect.value;
+            const originalValue = rgbModeSelect.getAttribute('data-original-value');
+            
+            if (value !== originalValue) {
+                changedFields.add('rgb-mode');
+                saveData('rgb-mode', value);
+            }
+        });
+    }
+}
+
+// Odświeżanie danych co 1 sekundę
+setInterval(loadData, 1000);
+loadData();
+
+// Ustaw listenery po załadowaniu strony
+setupFieldListeners();
+
+// Zapisz oryginalne wartości po pierwszym załadowaniu (wszystkie pola)
+setTimeout(() => {
+    const allFields = ['sensor1', 'sensor2', 'sensor3', 'sensor4', 'sensor5', 'sensor6', 'sensor7', 'setting1', 'setting2', 'setting3', 'setting4', 'setting5', 'setting6', 'setting7', 'temperature', 'flow', 'ph', 'gh', 'kh', 'no2', 'no3', 'cl2', 'rgb-red', 'rgb-green', 'rgb-blue', 'rgb-mode'];
+    allFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (field) {
+            field.setAttribute('data-original-value', field.value || '');
+        }
+    });
+    // Inicjalizuj podgląd RGB
+    updateRGBPreview();
+}, 500);
+</script>
+
+</body>
+</html>
